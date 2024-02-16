@@ -4,6 +4,8 @@ let app = express()
 
 let PORT = 8000;
 
+app.set("view engine", "ejs")
+
 app.get('/', (req, res) => {
     res.send("<h1>Hello world</h1>")
 })
