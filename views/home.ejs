@@ -6,7 +6,25 @@
 </head>
 <body>
     <div>
-        <h1>Ejs file testing</h1>
+        <h1 style="text-align: center; text-decoration: underline;">Get & post Request</h1>
+
+        <form method="get" action="/register">
+            <h2 >Get request</h2>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username">            
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+            <button>Submit</button>
+        </form>
+        <form method="post" action="/register">
+            <h2>Post request</h2>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username">            
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+            <button>Submit</button>
+       
+        </form>
     </div>
 </body>
 </html>

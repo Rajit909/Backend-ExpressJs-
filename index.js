@@ -1,3 +1,4 @@
+const { log } = require("console");
 const express = require("express")
 
 
@@ -6,14 +7,31 @@ const path = require("path")
 
 let PORT = 8000;
 
+
 app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "/views"))
 app.use(express.static(path.join(__dirname, "public")))
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 
 app.get("/", (req, res)=>{
     res.render("home.ejs")
 })
+
+app.get("/register", (req, res) => {
+    console.log(req.query);
+    let {username, password} = req.query;
+    res.send(`Get request, Welcome ${username} you created your password as ${password}`)
+})
+app.post("/register", (req, res) => {
+    console.log(req.body);
+    let {username, password} = req.body;
+    res.send(`Post request, Welcome ${username} you created your password as ${password}`)
+})
+
+
+
 app.get("/ig/:username", (req, res)=>{
     let { username } = req.params;
     const instaData = require("./data.json")
@@ -24,10 +42,6 @@ app.get("/ig/:username", (req, res)=>{
         res.render("error.ejs") 
     }
 })
-
-
-
-
 
 // app.get('/', (req, res) => {
 //     res.send("<h1>Hello world</h1>")
