@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+}
+h1 {
+    text-align: center;
+}
+.post {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+.post h2 {
+    margin: 0;
+}
+.post p {
+    margin: 10px 0;
+}
