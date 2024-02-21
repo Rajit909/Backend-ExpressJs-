@@ -1,3 +1,4 @@
+import { log } from "console";
 import express from "express";
 import path from "path"
 
@@ -40,6 +41,13 @@ app.get("/posts", (req, res) => {
     res.render("index.ejs", {posts})
 })
 
-app.post("/posts/new", (req, res) => {
+app.get("/posts/new", (req, res) => {
     res.render("new.ejs")
+})
+
+app.post("/posts", (req, res) => {
+    let { username, content } = (req.body)
+    posts.push({username, content})
+    res.redirect("/posts")
+    res.send("Post request")
 })

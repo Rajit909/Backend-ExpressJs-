@@ -7,11 +7,13 @@
 </head>
 <body>
     <div>
-        <form>
-            <input type="text" name="username" placeholder="Username">
-            <textarea name="content" placeholder="Content"></textarea>
+        <form method="post" action="/posts">
+            <input type="text" name="username" placeholder="Username"><br><br>
+            <textarea name="content" placeholder="Content"></textarea><br><br>
             <button>Post</button>
         </form>
+
+        <a href="/posts">Back</a>
     </div>
 </body>
 </html>

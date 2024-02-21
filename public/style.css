@@ -3,6 +3,8 @@ body {
 }
 h1 {
     text-align: center;
+    /* background-color: #f4f4f4; */
+    color: #ab1212;
 }
 .post {
     margin: 20px;
@@ -16,4 +18,11 @@ h1 {
 }
 .post p {
     margin: 10px 0;
+}
+.post a {
+    color: #ab1212;
+    text-decoration: none;
+}
+.post a:hover {
+    text-decoration: underline;
 }
