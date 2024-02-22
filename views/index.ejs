@@ -11,7 +11,11 @@
     <% for(post of posts){%>
         <div class="post">
             <h2>@ <%= post.username %></h2>
+            <span>Id: 
+                <%=  post.id %>
+            </span>
             <p><%= post.content %></p>
+            <a href="/posts/<%= post.id %>/edit">Edit post</a><br>
             <a href="/posts/<%= post.id %>">See in detail</a>
         </div>
     <% } %>
