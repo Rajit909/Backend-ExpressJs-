@@ -1,7 +1,7 @@
 import express from "express";
 import path from "path"
 import { v4 as uuidv4 } from "uuid";
-// import methodOverride from "method-override";
+import methodOverride from "method-override";
 
 
 const __dirname = path.resolve();
@@ -17,6 +17,8 @@ app.set("views", path.join(__dirname, "/views"))
 app.use(express.static(path.join(__dirname, "public")))
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(methodOverride("_method"))
+
 
 app.listen(PORT, () => {
     console.log(`App is running on http://localhost:${PORT}`);
@@ -77,6 +79,7 @@ app.patch("/posts/:id", (req, res) => {
     let post = posts.find((p) => id === p.id);
     post.content = newContent
     console.log(post);
+    res.redirect("/posts")
 })
 
 app.get("/posts/:id/edit", (req, res) => {
