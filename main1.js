@@ -99,29 +99,40 @@ const bookSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    min:1,
-    required: true
+    min: [1, "price should be greater then 0"],
+    required: true,
   },
   discount: {
     type: Number,
-    default: 0
+    default: 0,
   },
-  discount:{
+  discount: {
     type: String,
-    enum: ["fiction", "si-fi"]
-  }
-
+    enum: ["fiction", "si-fi"],
+  },
 });
 
 const Book = mongoose.model("Book", bookSchema);
 
-const book1 = new Book({
-  title: "Java",
-  author: "abc",
-  price: 999
-});
+// const book1 = new Book({
+//   title: "Java",
+//   author: "abc",
+//   price: 999,
+// });
 
-book1
-  .save()
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+// book1
+//   .save()
+//   .then((res) => console.log(res))
+//   .catch((err) => console.log(err));
+
+Book.findByIdAndUpdate(
+  "6632632beb47b63a6c840a37",
+  { price: -599 },
+  { runValidators: true }
+)
+  .then((res) => {
+    console.log(res)
+  })
+  .catch((err) => {
+    console.log(err.errors.price.properties.message)
+  });

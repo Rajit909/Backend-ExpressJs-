@@ -3,26 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Posts</title>
-   <link rel="stylesheet" href="style.css">
+    <title>Chats App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Qoura post</h1>
-    <% for(post of posts){%>
-        <div class="post">
-            <h2>@ <%= post.username %></h2>
-            <span>Id: 
-                <%=  post.id %>
-            </span>
-            <p><%= post.content %></p>
-            <a href="/posts/<%= post.id %>/edit">Edit post</a><br>
-            <a href="/posts/<%= post.id %>">See in detail</a><br>
-            <form method="post" action="/posts/<%= post.id %>?_method=DELETE" >
-                <button>Delete</button>
-            </form>
-        </div>
-    <% } %>
+    <h3>All chats</h3>
 
-    <a href="/posts/new">New Post</a>
+    <form action="/chats/new" method="get">
+        <button class="btn">New Chat</button>
+    </form>
+
+    <div class="container">
+   <% for (chat of chats){ %>
+
+        <div class="chat">
+            <p>
+                <%=
+                chat.created_at.toString().split(" ")[4]
+                %>
+                <br>
+                <%=
+                chat.created_at.toString().split(" ").slice(0, 4).join("-")
+                %>
+
+            </p>
+            <p class="from">From: <%= chat.from %></p>
+            <div class="msg">
+                <p><span>message:</span> <br><br>
+                    <%= chat.msg %></p>
+                    <form method="GET" action="/chats/<%= chat._id %>/edit">
+                        <button class="btn">Edit</button>
+                    </form>
+                    <form method="POST" action="/chats/<%= chat._id %>?_method=DELETE">
+                        <button class="btn">Delete</button>
+                    </form>
+                </div>
+                <p>Recieved by: <%= chat.to %></p>
+
+             
+            </div>
+            
+            
+            <%   } %>
+        </div>
+        
+
 </body>
 </html>

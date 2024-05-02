@@ -1,3 +1,17 @@
+
+/* community classes */
+/* Button */
+.btn{
+    padding: 5px 15px;
+    background-color: black;
+    color:chocolate;
+    font-weight: 700;
+    border-radius: 5px;
+    font-size: 25px;
+    margin: 10px;
+    cursor: pointer;
+}
+
 body {
     font-family: Arial, sans-serif;
 }
@@ -25,4 +39,57 @@ h1 {
 }
 .post a:hover {
     text-decoration: underline;
+}
+.chat{
+    background-color: rgb(228, 120, 228);
+    color: white;    
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 5px 5px 5px rgb(142, 136, 136);
+}
+.from{
+    text-decoration:underline;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: chocolate;
+    font-size: 25px;
+}
+.msg{
+    background-color: gray;
+    padding:1px 5px;
+    border-radius: 5px;
+    
+
+}
+span{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+.msg>p{
+    border: 2px solid black;
+    padding: 15px;
+    border-radius: 5px;
+}
+div>p:nth-of-type(2){
+    color: purple;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+
+}
+@media screen and (max-width: 750px) {
+    .container{
+        grid-template-columns: repeat(1, 1fr);
+        margin: 0 15px;
+    }
+    
+}
+.bg{
+    background-color: rgb(204, 142, 49);
+    padding: 10px;
+    border-radius: 5px;
 }
