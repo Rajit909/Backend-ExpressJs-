@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
+import Listing from "../models/listing.js";
+import initData from "../init/data.js"
 
-import Chat from "../models/chat.js"
+// import Chat from "../models/chat.js"
 
 const connectToDB = ()=> {
     mongoose.connect(process.env.MONGO_URL)
@@ -12,6 +14,18 @@ const connectToDB = ()=> {
         process.exit(1);
     });
 };
+
+
+const initDB = async () => {
+    // Listing.deleteMany({});
+    // Listing.insertMany(initData.data)
+    console.log("Data was initialized");
+}
+
+
+
+initDB();
+
 
 // let chats = [
 //     {
@@ -36,6 +50,9 @@ const connectToDB = ()=> {
 
 // Chat.insertMany(chats)
 // console.log(chats);
+
+
+
 
 
 

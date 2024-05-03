@@ -3,50 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chats App</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Airbnb clone</title>
+    <link rel="stylesheet" href="airbnb.css">
 </head>
 <body>
-    <h3>All chats</h3>
-
-    <form action="/chats/new" method="get">
-        <button class="btn">New Chat</button>
-    </form>
-
-    <div class="container">
-   <% for (chat of chats){ %>
-
-        <div class="chat">
-            <p>
-                <%=
-                chat.created_at.toString().split(" ")[4]
-                %>
-                <br>
-                <%=
-                chat.created_at.toString().split(" ").slice(0, 4).join("-")
-                %>
-
-            </p>
-            <p class="from">From: <%= chat.from %></p>
-            <div class="msg">
-                <p><span>message:</span> <br><br>
-                    <%= chat.msg %></p>
-                    <form method="GET" action="/chats/<%= chat._id %>/edit">
-                        <button class="btn">Edit</button>
-                    </form>
-                    <form method="POST" action="/chats/<%= chat._id %>?_method=DELETE">
-                        <button class="btn">Delete</button>
-                    </form>
-                </div>
-                <p>Recieved by: <%= chat.to %></p>
-
-             
-            </div>
-            
-            
-            <%   } %>
+    <div>
+        <div class="nav">
+            <h2>Airbnb</h2>
+            <ul>
+                <li>Contact</li>
+                <li>Services</li>
+            </ul>
         </div>
-        
+        <!-- Listings -->
 
+        <div class="container">
+        <%for (listings of allListings){ %>
+            <li>
+                <a href="/listings/<%= listings._id %>">
+
+                    <div class="card">
+                        <img src="<%=listings.image.url%>" alt="" width="100%" height="230px">
+                        <h4><%= listings.title %></h4>
+                        <h4>Price: <%= listings.price %></h4>
+                        <h3>Location: <%= listings.location %></h3>
+                        <h3>Country: <%= listings.country %></h3>
+                        
+                        
+                    </div>
+                </a>
+            </li>
+                
+                <%}%>
+            </div>
+
+
+    </div>
 </body>
 </html>
